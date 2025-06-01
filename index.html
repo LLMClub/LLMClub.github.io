@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>LLM Journal Club</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f5f6ff;
+      color: #23233b;
+      margin: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg,#715cff 10%,#55c7e9 90%);
+      color: #fff;
+      padding: 2.2rem 1.5rem 1.3rem 1.5rem;
+      border-radius: 0 0 2rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 24px 0 #715cff19;
+    }
+    nav {
+      margin: 1.2rem 0 0.7rem 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.3em;
+      font-weight: 500;
+      font-size: 1.08em;
+      transition: text-shadow .2s;
+    }
+    nav a:hover { text-shadow: 0 2px 8px #1112; }
+    .container {
+      max-width: 730px;
+      margin: -2.2rem auto 3rem auto;
+      padding: 1.6rem 1.0rem 2.4rem 1.0rem;
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 6px 36px #715cff0f;
+    }
+    h1 { font-size: 2.15rem; margin-bottom: 0.6rem; }
+    h2 { 
+      font-size: 1.4rem; 
+      margin: 1.7rem 0 0.7rem 0; 
+      color: #434368;
+      border-bottom: 1.5px solid #e5e6fa; 
+      padding-bottom: 0.2em;
+      font-weight: 600;
+    }
+    .links a {
+      display: inline-block;
+      margin-right: 0.9em;
+      margin-bottom: 0.6em;
+      color: #715cff;
+      text-decoration: none;
+      font-weight: 600;
+      background: #f4f6ff;
+      border-radius: 12px;
+      padding: 0.37em 1.2em;
+      transition: background .15s,color .15s;
+    }
+    .links a:hover {
+      background: #715cff;
+      color: #fff;
+    }
+    .next-session {
+      background: linear-gradient(90deg,#f8f8ff 80%,#e2e7fc 100%);
+      border-radius: 0.6em;
+      padding: 0.9em 1.3em;
+      box-shadow: 0 1px 10px #715cff10;
+      margin-bottom: 1.5em;
+      margin-top: 1em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0 0.5em 0;
+      background: #fcfdff;
+    }
+    th, td { 
+      padding: 0.6em 0.5em;
+      border-bottom: 1px solid #f2f2fa;
+      text-align: left; 
+      font-size: 1.01em;
+    }
+    th { 
+      background: #f5f6ff; 
+      color: #623ed9; 
+      font-weight: 600; 
+      font-size: 1.08em;
+      letter-spacing: 0.01em;
+    }
+    tr:hover { background: #f7f7fa; }
+    @media (max-width: 700px) {
+      .container { padding: 0.6rem 0.5rem 1.1rem 0.5rem; }
+      table,thead,tr,th,td { 
+        font-size: 0.94em; 
+        padding: 0.38em;
+      }
+      nav a { font-size: 1em; }
+    }
+    .footer {
+      text-align: center;
+      color: #bdbce1;
+      margin-top: 3em;
+      font-size: 0.93em;
+      padding-bottom: 0.6em;
+    }
+    .about-txt { 
+      color: #535379;
+      font-size: 1.07em;
+      margin: 0.8em 0 1.2em 0;
+      line-height: 1.65; 
+    }
+    .session-link{ color:#715cff;text-decoration:none;}
+    .session-link:hover{text-decoration:underline;color:#323ec6;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LLM Journal Club</h1>
+    <div style="margin-top:-0.6em; opacity: 0.9; font-size:1.16em;font-weight:600;">
+      <span>Discussing Large Language Models: Weekly Paper Reads</span>
+    </div>
+    <nav>
+      <a href="#sessions">Sessions</a>
+      <a href="#about">About</a>
+      <a href="#links">Links</a>
+    </nav>
+  </header>
+  <div class="container">
+    <section class="next-session">
+      <span style="font-weight:600;color:#5935df">Next Session:</span>
+      <span><!-- Fill with your next session date/time/title --></span>
+      <br>
+      <span style="font-weight:500">Topic:</span>
+      <span><!-- Next session topic --></span>
+      <br>
+      <span style="font-size:0.96em">
+        Join live on 
+        <a href="https://t.me/LLM_CLUB" class="session-link">Telegram</a>
+      </span>
+    </section>
+    <section id="sessions">
+      <h2>Past Sessions</h2>
+      <div style="font-size:0.97em; color:#788;">All session videos & slides are on our social media below!</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Title / Topic</th>
+            <th>Speaker</th>
+            <th>Slides</th>
+            <th>Video</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Fill these rows with your past session data, example: -->
+          <tr>
+            <td>2024-05-28</td>
+            <td>Intro to LLM Agents</td>
+            <td>Moein S.</td>
+            <td><a href="#" target="_blank">PDF</a></td>
+            <td><a href="https://www.youtube.com/@LLM_CLUB" target="_blank">YouTube</a></td>
+            <td><a href="#" target="_blank">Notes</a></td>
+          </tr>
+          <tr>
+            <td>2024-05-21</td>
+            <td>Towards Generalist LLM Benchmarks</td>
+            <td>Guest: Dr. Jafari</td>
+            <td><a href="#" target="_blank">Slides</a></td>
+            <td><a href="https://www.youtube.com/@LLM_CLUB" target="_blank">YouTube</a></td>
+            <td>–</td>
+          </tr>
+          <!-- Add more rows for each session, or script-inject via JS for larger data -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-txt">
+        LLM Journal Club is a community of students, researchers, and techies at Sharif and beyond.  
+        Every week, we meet online to discuss the latest research, tools, applications, and trends in Large Language Models.<br><br>
+        <b>Format:</b>  
+        Short presentations + in-depth discussions.<br>
+        <b>Focus:</b>  
+        Recent LLM papers, benchmarks, fine-tuning, agent frameworks, tool use, AI safety, etc.<br>
+        <br>
+        🗓 Usually <b>Wednesdays</b>.  
+        Got a topic or want to present? Ping us on Telegram!
+      </div>
+    </section>
+
+    <section id="links">
+      <h2>Links</h2>
+      <div class="links">
+        <a href="https://t.me/LLM_CLUB" target="_blank">Telegram</a>
+        <a href="https://www.youtube.com/@LLM_CLUB" target="_blank">YouTube</a>
+        <a href="https://x.com/LLM_CLUB" target="_blank">Twitter</a>
+        <a href="https://docs.google.com/spreadsheets/d/1fNT1DXAv0T47Hu2mBmKi5pwwk0zX_aA9my_M6Lm-7u4/edit?gid=869202465" target="_blank">Session Spreadsheet</a>
+      </div>
+    </section>
+  </div>
+  <div class="footer">
+    © 2024 LLM Journal Club – Made with 💜 by Moein & friends.
+  </div>
+</body>
+</html>
