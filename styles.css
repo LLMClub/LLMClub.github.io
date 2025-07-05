@@ -134,7 +134,7 @@ body {
 }
 
 .poster-container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     border-radius: 15px;
     overflow: hidden;
