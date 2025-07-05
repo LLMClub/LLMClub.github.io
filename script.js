@@ -4,11 +4,11 @@ function loadCSV() {
     showLoading(true);
     hideError();
 
-    // Fetch the CSV file
+    // Use the correct GitHub URL
     fetch('https://raw.githubusercontent.com/LLMClub/LLMClub.github.io/main/LLM%20Club%20Presenter.csv')
         .then(response => {
             if (!response.ok) {
-                throw new Error('CSV file not found. Please ensure "LLM Club Presenter.csv" is available');
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.text();
         })
@@ -21,8 +21,7 @@ function loadCSV() {
                     showLoading(false);
                     
                     if (results.errors.length > 0) {
-                        showError('Error parsing CSV: ' + results.errors[0].message);
-                        return;
+                        console.warn('CSV parsing warnings:', results.errors);
                     }
 
                     // Clean and validate data
@@ -46,6 +45,8 @@ function loadCSV() {
                         session.subject
                     );
 
+                    console.log('Loaded sessions:', sessions.length);
+
                     if (sessions.length === 0) {
                         showError('No valid sessions found in CSV. Please check the format.');
                         return;
@@ -58,15 +59,18 @@ function loadCSV() {
                 error: function(error) {
                     showLoading(false);
                     showError('Error parsing CSV: ' + error.message);
+                    console.error('Papa Parse error:', error);
                 }
             });
         })
         .catch(error => {
             showLoading(false);
-            showError(error.message);
+            showError('Failed to load session data: ' + error.message);
+            console.error('Fetch error:', error);
         });
 }
 
+// Rest of your functions remain the same...
 function renderSessions() {
     const sessionsGrid = document.getElementById('sessions-grid');
     sessionsGrid.innerHTML = '';
@@ -102,7 +106,6 @@ function updateStats() {
 }
 
 function updateNextSession() {
-    // Find the next upcoming session or show a placeholder
     const now = new Date();
     const upcomingSessions = sessions.filter(session => 
         new Date(session.gregorianDate) > now
