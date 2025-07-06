@@ -122,12 +122,7 @@ function updateNextSession() {
                 Presenter: ${nextSession.presenter}
             </div>
         `;
-    } else {
-        nextSessionInfo.innerHTML = `
-            <div class="next-session-date">Stay Tuned!</div>
-            <div class="next-session-details">Our next session will be announced soon. Follow our social media for updates!</div>
-        `;
-    }
+    } 
 }
 
 function showLoading(show) {
